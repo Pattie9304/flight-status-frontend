@@ -5,6 +5,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding:20px;
 }
 
 /* Quitamos el estilo por default de las listas */
@@ -50,4 +51,30 @@
 @keyframes slideIn {
     from { width: 0; opacity: 0; }
     to { width: 100%; opacity: 1; }
+}
+
+@media screen and (max-width:480px) 
+{
+    .navigation
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding:20px;
+    }
+    .navigation-links
+    {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: flex-end;
+        padding:40px 20px;
+        font-size:20px;
+    }
+    .navigation-logo
+    {
+        font-size: 30px;
+        text-align: center;
+    }
 }

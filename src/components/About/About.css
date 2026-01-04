@@ -38,6 +38,18 @@
     align-items: center;
 }
 
+.about-full-grid
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+}
+.about-text
+{
+    text-align: left;
+}
+
 .about-text h2 {
     color: #2c3e50;
     margin-bottom: 20px;

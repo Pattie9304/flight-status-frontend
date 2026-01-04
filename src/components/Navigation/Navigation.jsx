@@ -19,7 +19,7 @@ const Navigation = () => {
             to="/about" 
             className={({ isActive }) => (isActive ? 'active-link' : '')}
           >
-            Sobre Mí
+            Sobre el proyecto
           </NavLink>
         </li>
       </ul>
