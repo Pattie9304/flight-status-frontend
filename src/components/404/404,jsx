@@ -1,0 +1,5 @@
+const page404 = () => {
+ return <div>Página no encontrada.</div>
+};
+
+export default page404;
