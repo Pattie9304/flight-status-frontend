@@ -1,17 +1,16 @@
+import React from 'react';
 import './Button.css';
 
-const Button = ({ children, onClick, type = 'button', variant = 'primary', className = '' }) => {
-  // La clase base es 'button'
-  // El modificador es 'button--primary', 'button--secondary', etc.
-  const buttonClass = `button button--${variant} ${className}`;
-
+// El prop onClick debe entrar aquí...
+const Button = ({ children, onClick, variant = 'primary', className = '', icon, isLoading }) => {
   return (
     <button 
-      type={type} 
-      className={buttonClass} 
-      onClick={onClick}
+      className={`btn btn--${variant} ${isLoading ? 'btn--loading' : ''} ${className}`} 
+      onClick={onClick} // ...y DEBE asignarse aquí
+      disabled={isLoading}
     >
-      {children}
+      {icon && <span className={`btn__icon ${isLoading ? 'btn__icon--spin' : ''}`}>{icon}</span>}
+      <span className="btn__text">{children}</span>
     </button>
   );
 };

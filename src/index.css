@@ -23,14 +23,15 @@ body {
 
 /* 3.0 - Importación de componentes */
 @import url(./components/App/App.css);
-@import url(./components/Header/Header.css);
-@import url(./components/Footer/Footer.css);
-@import url(./components/UI/Preloader.css);
+@import url(../../components/Footer/Header.css);
+@import url(../../components/Footer/Footer.css);
+@import url(../../components/UI/Preloader/Preloader.css);
 @import url(./components/UI/Button.css);
 @import url(./components/UI/FlightCard.css);
 
 /* 4.0 Importación de Páginas */
 @import url(./pages/Main/Main.css);
 @import url(./pages/About/About.css);
+@import url(./pages/Home/Home.css);
 @import url(./pages/NotFound/NotFound.css);
 

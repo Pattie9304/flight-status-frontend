@@ -1,59 +1,113 @@
 .footer {
-  /* Usamos la variable de azul oscuro */
-  background-color: var(--color-secondary); 
-  color: var(--color-background);
-  padding: 3rem 0; /* Un poco más de aire para un look más moderno */
-  margin-top: auto; 
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Sutil línea de división */
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 1px solid var(--border-page); /* Mismo borde que el resto */
+  padding: 2rem 0;
+  margin-top: auto; /* Empuja el footer al final si el contenido es poco */
 }
 
 .footer__container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Para que sea responsive */
   gap: 1.5rem;
 }
 
-.footer__copyright {
-  font-size: 0.85rem;
-  color: var(--color-text-muted); /* Usamos el gris suave definido en variables */
+/* Marca / Logo en el Footer */
+.footer__logo-text {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-page-title);
+  letter-spacing: -0.5px;
 }
 
-.footer__list {
-  list-style: none;
+.footer__logo-accent {
+  color: var(--accent-primary);
+}
+
+.footer__tagline {
+  font-size: 0.8rem;
+  color: var(--text-page-body);
+  margin-top: 0.2rem;
+}
+
+/* Copyright Central */
+.footer__copyright {
+  font-size: 0.85rem;
+  color: var(--text-page-body);
+  opacity: 0.8;
+}
+
+/* Navegación del Footer */
+.footer__nav {
   display: flex;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
+  gap: 1.5rem;
 }
 
 .footer__link {
-  color: var(--color-background);
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: color var(--transition-speed);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-page-title);
+  transition: color 0.3s ease;
 }
 
 .footer__link:hover {
-  color: var(--color-primary); /* Cambia al azul cielo al pasar el mouse */
-  text-decoration: none; /* Quitamos el subrayado para un look más limpio */
+  color: var(--accent-primary);
 }
 
-.footer--light {
-  background-color: var(--color-bg-light);
-  color: var(--color-text-main);
-  border-top: 1px solid #ddd;
+.footer__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
 }
 
-.footer--light .footer__link {
-  color: var(--color-text-main);
+/* Estilo del botón "Volver arriba" */
+.footer__scroll-top {
+  background: none;
+  border: 1px solid var(--border-page);
+  color: var(--text-page-body);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
 }
 
-.footer--light .footer__link:hover {
-  color: var(--color-primary);
+.footer__scroll-top:hover {
+  background-color: var(--accent-primary);
+  color: #ffffff;
+  border-color: var(--accent-primary);
+  transform: translateY(-3px); /* Pequeño salto al pasar el mouse */
+}
+
+.footer__scroll-icon {
+  font-size: 1rem;
+}
+
+.footer__copyright {
+  font-size: 0.8rem;
+  color: var(--text-page-body);
+  opacity: 0.7;
+}
+
+/* Ajuste Responsive */
+@media (max-width: 768px) {
+  .footer__container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .footer__center {
+    order: -1; /* Mueve el botón de scroll arriba en móviles para facilitar el acceso */
+  }
 }

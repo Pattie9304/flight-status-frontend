@@ -1,9 +1,9 @@
-const API_KEY = 'TU_API_KEY_AQUÍ'; // Reemplaza con tu clave de Aviationstack
+const API_KEY = import.meta.env.VITE_FLIGHT_API_KEY;
 const BASE_URL = 'http://api.aviationstack.com/v1';
 
 export const getFlightSchedules = async () => {
   try {
-    const response = await fetch(`${BASE_URL}/flights?access_key=${API_KEY}&limit=10`);
+    const response = await fetch(`${BASE_URL}/flights?access_key=${API_KEY}`);
     
     if (!response.ok) {
       throw new Error('Error al obtener los datos de la aviación');

@@ -1,52 +1,59 @@
+import React from 'react';
 import FlightCard from '../../components/UI/FlightCard/FlightCard.jsx';
 import './Home.css';
 
-const Home = ({ flights, error }) => {
-  return (
-    <div className="home">
-      {/* Sección Hero: Impacto visual inicial */}
-      <section className="home__hero">
-        <div className="home__hero-container">
-          <h1 className="home__hero-title">Terminal de Vuelos Real-Time</h1>
-          <p className="home__hero-subtitle">
-            Visualiza los horarios y estados de los vuelos globales actualizados desde la torre de control.
-          </p>
-          <div className="home__hero-divider"></div>
-        </div>
-      </section>
+const Home = ({ flights = [], error, loading }) => {
+  // Limitamos la muestra a solo 6 tarjetas
+  const flightPreview = flights.slice(0, 4);
 
-      {/* Sección de Resultados: Grid de vuelos */}
-      <section className="home__flights">
-        <div className="home__flights-container">
-          <h2 className="home__flights-title">Vuelos Programados</h2>
-          
-          {error ? (
-            <div className="home__error-container">
-              <p className="home__error-message">{error}</p>
-            </div>
-          ) : (
-            <div className="home__grid">
-              {flights.length > 0 ? (
-                flights.map((flight, index) => (
-                  <FlightCard
-                    key={flight.flight?.iata || index} // Usamos el código de vuelo como key si existe
-                    airline={flight.airline?.name || "Línea Aérea Desconocida"}
-                    flightNumber={flight.flight?.iata || "N/A"}
-                    origin={flight.departure?.iata || "---"}
-                    destination={flight.arrival?.iata || "---"}
-                    status={flight.flight_status}
-                  />
-                ))
-              ) : (
-                <p className="home__empty-state">
-                  No se han encontrado vuelos en este momento. Por favor, revisa más tarde.
-                </p>
-              )}
-            </div>
-          )}
+  return (
+    <section className="home">
+      {/* SECCIÓN DE BIENVENIDA */}
+      <header className="home__hero">
+        <h1 className="home__title">Bienvenido a JetDevs</h1>
+        <p className="home__subtitle">
+          Tu ventana al tráfico aéreo global en tiempo real. 
+          Explora los vuelos activos y mantente informado.
+        </p>
+
+        <div className="home__info-box">
+          <p className="home__info-text">
+            Los siguientes vuelos son una muestra de nuestro catálogo. 
+            Dirígete a <strong>Vuelos</strong> para ver el listado completo.
+          </p>
         </div>
-      </section>
-    </div>
+      </header>
+
+{/* MANEJO DE ESTADOS */}
+      <div className="home__container">
+        {loading && flights.length === 0 ? (
+          <div className="home__status-container">
+            <div className="home__loader"></div>
+            <p className="home__message">Iniciando escaneo de radar...</p>
+          </div>
+        ) : error ? (
+          <div className="home__status-container">
+            <p className="home__message home__message--error">⚠️ {error}</p>
+          </div>
+        ) : (
+          <div className="home__grid">
+            {flightPreview.length > 0 ? (
+              flightPreview.map((flight, index) => (
+                <div 
+                  key={flight.flight?.iata || index} 
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="home__card-wrapper"
+                >
+                  <FlightCard data={flight} />
+                </div>
+              ))
+            ) : (
+              <p className="home__message">No hay vuelos disponibles en este momento.</p>
+            )}
+          </div>
+        )}
+      </div>
+    </section>
   );
 };
 

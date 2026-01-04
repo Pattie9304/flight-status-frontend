@@ -1,99 +1,137 @@
-/* Bloque Principal: Home */
+/* Contenedor Principal */
 .home {
+  padding: 1rem 0;
   width: 100%;
+  /* Cambiamos height fijo por min-height para evitar cortes */
+  min-height: calc(100vh - 80px); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra todo el bloque verticalmente */
+  background-color: #ffffff;
 }
 
-/* --- Elemento: Hero --- */
+/* Hero ultra compacto */
 .home__hero {
-  padding: 80px 20px;
-  background-color: var(--color-bg-light);
   text-align: center;
+  padding: 0.5rem 2rem;
+  flex-shrink: 0;
 }
 
-.home__hero-container {
-  max-width: 800px;
-  margin: 0 auto;
+.home__title {
+  font-size: 1.6rem; 
+  margin-bottom: 0.2rem;
+  color: var(--text-page-title);
 }
 
-.home__hero-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--color-secondary);
-  margin-bottom: 1rem;
-  line-height: 1.2;
+.home__subtitle {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
 }
 
-.home__hero-subtitle {
-  font-size: 1.25rem;
-  color: var(--color-text-muted);
-  max-width: 600px;
-  margin: 0 auto;
+/* Info box más discreta para ahorrar espacio */
+.home__info-box {
+  border-top: 1px solid var(--border-page);
+  border-bottom: 1px solid var(--border-page);
+  padding: 0.4rem 0;
+  max-width: 450px;
+  margin: 0 auto 1rem;
 }
 
-.home__hero-divider {
-  width: 80px;
-  height: 4px;
-  background-color: var(--color-primary);
-  margin: 2.5rem auto 0;
-  border-radius: var(--border-radius-round);
+.home__info-text {
+  font-size: 0.85rem;
 }
 
-/* --- Elemento: Sección de Vuelos --- */
-.home__flights {
-  padding: 60px 20px;
-  background-color: var(--color-background);
+/* --- CONTENEDOR DE TARJETAS AJUSTADO --- */
+.home__container {
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.home__flights-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.home__flights-title {
-  font-size: 2rem;
-  color: var(--color-secondary);
-  margin-bottom: 2.5rem;
-  font-weight: 700;
-}
-
-/* --- Elemento: Rejilla de Tarjetas (Grid) --- */
 .home__grid {
   display: grid;
-  /* Responsivo automático: tarjetas de mínimo 300px */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  /* Bajamos el tamaño a 220px para asegurar que quepan 3 por fila en casi cualquier pantalla */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem; 
   width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* --- Elementos de Estado (Error/Vacío) --- */
-.home__error-container {
-  padding: 40px;
-  background-color: var(--color-status-error);
-  border-radius: var(--border-radius);
-  text-align: center;
+/* La clave para que no se corten */
+.home__card-wrapper {
+  width: 100%;
+  /* Reducimos el zoom pero quitamos el overflow:hidden del padre */
+  transform: scale(0.85); 
+  /* Aseguramos que el margen compense el escalado */
+  margin: -10px 0; 
+  transition: transform 0.3s ease;
 }
 
-.home__error-message {
-  color: var(--color-status-error-text);
-  font-weight: 600;
-  margin: 0;
+.home__card-wrapper:hover {
+  transform: scale(0.9);
 }
 
-.home__empty-state {
-  text-align: center;
-  color: var(--color-text-muted);
-  font-style: italic;
-  grid-column: 1 / -1; /* Ocupa todo el ancho del grid */
-  padding: 40px 0;
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Media Query para pantallas pequeñas (Ajuste de títulos) */
-@media (max-width: 768px) {
-  .home__hero-title {
-    font-size: 2.2rem;
+/* --- RESPONSIVE DESIGN (880px) --- */
+@media (max-width: 880px) {
+  .home {
+    /* Permitimos scroll natural si el contenido excede la pantalla en tablets */
+    height: auto;
+    min-height: calc(100vh - 70px);
+    overflow-y: auto;
+    padding-bottom: 2rem;
   }
-  
+
   .home__hero {
-    padding: 60px 20px;
+    padding: 2rem 1rem 1rem;
+  }
+
+  .home__title {
+    font-size: 1.6rem;
+  }
+
+  .home__subtitle {
+    font-size: 0.9rem;
+    max-width: 90%;
+  }
+
+  .home__container {
+    padding: 0 1rem;
+    align-items: flex-start; /* Evita que el contenido flote si hay pocas tarjetas */
+  }
+
+.home__grid {
+    display: grid;
+    /* 1fr obliga a la celda a ocupar todo el ancho disponible */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 900px; 
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  /* REPARACIÓN DEL WRAPPER */
+  .home__card-wrapper {
+    width: 100%;      /* Ocupa el 100% de la celda del grid */
+    display: flex;    /* Nos ayuda a controlar el hijo */
+    transform: none;  /* Eliminamos el scale para evitar distorsiones de tamaño */
+    margin: 0;        /* Eliminamos márgenes que puedan estar restando ancho */
+  }
+
+  /* REPARACIÓN DEL COMPONENTE INTERNO (FlightCard) */
+  .home__card-wrapper > div, 
+  .home__card-wrapper > article { 
+    width: 100% !important; /* Forzamos a que la tarjeta real llene el wrapper */
+    max-width: none !important; 
+    box-sizing: border-box; /* Asegura que el padding no sume ancho extra */
   }
 }

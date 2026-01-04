@@ -1,65 +1,89 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-
-/* Estilos */
+import React, { useState, useEffect } from 'react';
+import FlightCard from '../../components/UI/FlightCard/FlightCard.jsx';
 import './Main.css';
 
-/* Componentes */
-import Loader from '../UI/Preloader/Preloader.jsx'; // Ruta corregida a carpeta UI
-import Header from '../Header/Header.jsx';
-import About from '../About/About.jsx';
-import FlightCard from '../UI/FlightCard/FlightCard.jsx';
-import Footer from '../Footer/Footer.jsx';
-import PageNotFound from '../NotFound/NotFound.jsx'; // Asegúrate de importar tu 404
-
-/* Utils */
-import { getFlightSchedules } from '../../utils/aviationApi';
-
-function Main() {
-  const [loading, setLoading] = useState(true);
-  const [fading, setFading] = useState(false);
-  const [flights, setFlights] = useState([]);
-  const [error, setError] = useState(null);
+const Main = ({ flights = [], loading, error }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const flightsPerPage = 12; 
 
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const data = await getFlightSchedules();
-        setFlights(data || []);
-      } catch (err) {
-        setError("Error de conexión con la torre de control. Por favor, reintente.");
-      } finally {
-        setFading(true);
-        setTimeout(() => setLoading(false), 1000);
-      }
-    };
-    loadData();
-  }, []);
+    setCurrentPage(1);
+  }, [flights.length]);
 
-return (
-    <div className="main">
-      {/* 1. El Preloader se muestra mientras loading sea true */}
-      {loading && <Loader fading={fading} />}
+  const totalFlights = flights.length;
+  const totalPages = Math.ceil(totalFlights / flightsPerPage);
+  
+  const indexOfLastFlight = currentPage * flightsPerPage;
+  const indexOfFirstFlight = indexOfLastFlight - flightsPerPage;
+  const currentFlights = flights.slice(indexOfFirstFlight, indexOfLastFlight);
 
-      {/* 2. El envoltorio principal */}
-      {/* Usamos un template literal para añadir la clase --visible cuando termine de cargar */}
-      <div className={`main-wrapper ${!loading ? 'main-wrapper--visible' : ''}`}>
-        
-        <Header />
-        
-        <main className="main__content">
-          <Routes>
-            <Route path="/" element={<Home flights={flights} error={error} />} />
-            <Route path="/about" element={<About />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        </main>
+  // Cálculos para el indicador de cantidad
+  const rangeStart = totalFlights === 0 ? 0 : indexOfFirstFlight + 1;
+  const rangeEnd = Math.min(indexOfLastFlight, totalFlights);
 
-        <Footer />
+  return (
+    <div className="flights-page">
+      <header className="flights-page__hero">
+        <h1 className="flights-page__title">Listado de Vuelos</h1>
+        <p className="flights-page__subtitle">
+          Listado completo de operaciones aéreas. Monitoreo en tiempo real.
+        </p>
+        <div className="flights-page__divider"></div>
         
-      </div>
+        {/* INDICADOR DE CANTIDAD TOTAL */}
+        {!loading && totalFlights > 0 && (
+          <div className="flights-page__count-indicator">
+            Mostrando <strong>{rangeStart} - {rangeEnd}</strong> de <strong>{totalFlights}</strong> vuelos encontrados
+          </div>
+        )}
+      </header>
+
+      <section className="flights-page__container">
+        {loading && totalFlights === 0 ? (
+          <div className="flights-page__status">
+            <div className="flights-page__loader"></div>
+            <p>Sincronizando radar...</p>
+          </div>
+        ) : error ? (
+          <div className="flights-page__status">
+            <p className="flights-page__error">⚠️ {error}</p>
+          </div>
+        ) : (
+          <>
+            <div className="flights-page__grid">
+              {currentFlights.map((flight, index) => (
+                <div key={flight.flight?.iata || index} className="flights-page__card-item">
+                  <FlightCard data={flight} />
+                </div>
+              ))}
+            </div>
+
+            <nav className="flights-page__pagination">
+              <button 
+                className="flights-page__page-btn" 
+                onClick={() => setCurrentPage(p => p - 1)}
+                disabled={currentPage === 1}
+              >
+                &larr; Anterior
+              </button>
+              
+              <span className="flights-page__page-info">
+                Página <strong>{currentPage}</strong> de {totalPages || 1}
+              </span>
+
+              <button 
+                className="flights-page__page-btn" 
+                onClick={() => setCurrentPage(p => p + 1)}
+                disabled={currentPage === totalPages || totalPages === 0}
+              >
+                Siguiente &rarr;
+              </button>
+            </nav>
+          </>
+        )}
+      </section>
     </div>
   );
-}
+};
 
 export default Main;
