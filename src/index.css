@@ -1,7 +1,36 @@
-@import url(../src/assets/vendor/normalize.css);
-@import url(../src/components/App/App.css);
-@import url(../src/components/Header/Header.css);
-@import url(../src/components/Navigation/Navigation.css);
-@import url(../src/components/Main/main.css);
-@import url(../src/components/About/about.css);
-@import url(../src/components/Footer/Footer.css);
+/* 1.0 - Capa de Configuración */
+@import url(./src/assets/styles/variables.css);
+@import url(./src/assets/vendor/normalize.css);
+
+/* 2.0 - Reset Universal */
+*, *::before, *::after {
+  box-sizing: border-box; /* Fundamental para que el padding no rompa el ancho */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-main);
+  line-height: 1.6; /* Mejora la legibilidad de todos los textos */
+  -webkit-font-smoothing: antialiased; /* Hace que las fuentes se vean más finas */
+}
+
+/* 3.0 - Importación de componentes */
+@import url(./components/App/App.css);
+@import url(./components/Header/Header.css);
+@import url(./components/Footer/Footer.css);
+@import url(./components/UI/Preloader.css);
+@import url(./components/UI/Button.css);
+@import url(./components/UI/FlightCard.css);
+
+/* 4.0 Importación de Páginas */
+@import url(./pages/Main/Main.css);
+@import url(./pages/About/About.css);
+@import url(./pages/NotFound/NotFound.css);
+

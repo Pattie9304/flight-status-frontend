@@ -1,0 +1,99 @@
+/* Bloque Principal: Home */
+.home {
+  width: 100%;
+}
+
+/* --- Elemento: Hero --- */
+.home__hero {
+  padding: 80px 20px;
+  background-color: var(--color-bg-light);
+  text-align: center;
+}
+
+.home__hero-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.home__hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--color-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.home__hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.home__hero-divider {
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary);
+  margin: 2.5rem auto 0;
+  border-radius: var(--border-radius-round);
+}
+
+/* --- Elemento: Sección de Vuelos --- */
+.home__flights {
+  padding: 60px 20px;
+  background-color: var(--color-background);
+}
+
+.home__flights-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home__flights-title {
+  font-size: 2rem;
+  color: var(--color-secondary);
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+}
+
+/* --- Elemento: Rejilla de Tarjetas (Grid) --- */
+.home__grid {
+  display: grid;
+  /* Responsivo automático: tarjetas de mínimo 300px */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+/* --- Elementos de Estado (Error/Vacío) --- */
+.home__error-container {
+  padding: 40px;
+  background-color: var(--color-status-error);
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+.home__error-message {
+  color: var(--color-status-error-text);
+  font-weight: 600;
+  margin: 0;
+}
+
+.home__empty-state {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-style: italic;
+  grid-column: 1 / -1; /* Ocupa todo el ancho del grid */
+  padding: 40px 0;
+}
+
+/* Media Query para pantallas pequeñas (Ajuste de títulos) */
+@media (max-width: 768px) {
+  .home__hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .home__hero {
+    padding: 60px 20px;
+  }
+}

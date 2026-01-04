@@ -1,11 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter as Router} from 'react-router-dom'
-import '../../index.css'
-import Main from '../Main/Main.jsx'
+// App.jsx
+import Main from './pages/Main/Main.jsx';
 
-createRoot(document.getElementById('app-root')).render(
-    <Router>
+function App() {
+  return (
+    <div className="app"> {/* Bloque raíz BEM */}
       <Main />
-    </Router>
-)
+    </div>
+  );
+}
+
+export default App;

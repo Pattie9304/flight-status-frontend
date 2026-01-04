@@ -1,0 +1,43 @@
+/* Bloque Raíz */
+.main {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Elemento: Wrapper (El contenedor que envuelve Header, Content y Footer) */
+.main__wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+  background-color: var(--color-background);
+}
+
+/* Modificador de visibilidad del Wrapper */
+.main__wrapper--visible {
+  opacity: 1;
+}
+
+/* Elemento: Content (El espacio dinámico para las rutas) */
+.main__content {
+  flex-grow: 1; /* Esto es vital para que el footer se mantenga abajo */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animación suave para la entrada de las páginas dentro del content */
+.main__content > * {
+  animation: mainFadeIn 0.4s ease-out;
+}
+
+@keyframes mainFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}

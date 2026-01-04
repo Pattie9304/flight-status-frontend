@@ -1,0 +1,56 @@
+/* Bloque Principal */
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh; /* Centrado vertical en el área de contenido */
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Contenedor del elemento */
+.not-found__container {
+  max-width: 600px;
+}
+
+/* El número 404 grande */
+.not-found__code {
+  font-size: 8rem;
+  margin: 0;
+  line-height: 1;
+  color: #87CEEB; /* El azul cielo que identifica la app */
+  font-weight: 800;
+  opacity: 0.5;
+}
+
+.not-found__title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-top: -20px; /* Sube un poco para pegarse al código */
+  margin-bottom: 20px;
+}
+
+.not-found__text {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+}
+
+/* El botón con estilo de acción */
+.not-found__button {
+  display: inline-block;
+  background-color: #2c3e50;
+  color: #ffffff;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #2c3e50;
+}
+
+.not-found__button:hover {
+  background-color: transparent;
+  color: #2c3e50;
+  transform: scale(1.05);
+}

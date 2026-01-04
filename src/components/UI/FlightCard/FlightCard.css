@@ -1,0 +1,113 @@
+.flight-card {
+  background: var(--color-background);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-left: 5px solid var(--color-primary); /* Por defecto azul */
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  position: relative;
+  overflow: hidden;
+}
+
+.flight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Encabezado: Aerolínea y Número de Vuelo */
+.flight-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.flight-card__airline {
+  font-weight: 800;
+  color: var(--color-secondary);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.flight-card__number {
+  font-family: monospace;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  background: var(--color-bg-light);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Cuerpo: Ruta (Origen -> Destino) */
+.flight-card__route {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.flight-card__airport {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.flight-card__arrow {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+}
+
+/* Etiqueta de Estado */
+.flight-card__status {
+  align-self: flex-start;
+  padding: 4px 12px;
+  border-radius: var(--border-radius-round);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Variaciones de Estado dinámicas */
+.flight-card__status--active {
+  background-color: var(--color-status-active);
+  color: var(--color-status-active-text);
+}
+
+.flight-card__status--scheduled {
+  background-color: var(--color-bg-light);
+  color: var(--color-secondary);
+}
+
+.flight-card__status--cancelled,
+.flight-card__status--landed {
+  background-color: var(--color-status-error);
+  color: var(--color-status-error-text);
+}
+
+/* Modificador de la tarjeta según el estado (Opcional para el borde) */
+.flight-card--cancelled {
+  border-left-color: var(--color-status-error-text);
+}
+
+.flight-card__point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flight-card__label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+}
+
+.flight-card__footer {
+  margin-top: auto; /* Empuja el estado siempre al fondo de la tarjeta */
+  display: flex;
+  justify-content: flex-start;
+}

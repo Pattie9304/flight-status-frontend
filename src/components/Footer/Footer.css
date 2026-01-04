@@ -1,0 +1,59 @@
+.footer {
+  /* Usamos la variable de azul oscuro */
+  background-color: var(--color-secondary); 
+  color: var(--color-background);
+  padding: 3rem 0; /* Un poco más de aire para un look más moderno */
+  margin-top: auto; 
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Sutil línea de división */
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer__copyright {
+  font-size: 0.85rem;
+  color: var(--color-text-muted); /* Usamos el gris suave definido en variables */
+}
+
+.footer__list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__link {
+  color: var(--color-background);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color var(--transition-speed);
+}
+
+.footer__link:hover {
+  color: var(--color-primary); /* Cambia al azul cielo al pasar el mouse */
+  text-decoration: none; /* Quitamos el subrayado para un look más limpio */
+}
+
+.footer--light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-main);
+  border-top: 1px solid #ddd;
+}
+
+.footer--light .footer__link {
+  color: var(--color-text-main);
+}
+
+.footer--light .footer__link:hover {
+  color: var(--color-primary);
+}

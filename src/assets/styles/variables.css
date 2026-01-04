@@ -1,0 +1,39 @@
+/* Definición de variables globales */
+:root {
+  /* Colores Principales */
+  --color-primary: #87CEEB;       /* Azul Cielo (Preloader y Botones) */
+  --color-primary-hover: #5fb5d8;
+  --color-secondary: #2c3e50;     /* Azul Oscuro (Títulos y Footer) */
+  --color-accent: #f39c12;        /* Naranja (para estados de alerta o avisos) */
+
+  /* Colores de Fondo y Texto */
+  --color-background: #ffffff;
+  --color-bg-light: #f8f9fa;      /* Fondo de tarjetas o secciones */
+  --color-text-main: #333333;     /* Texto principal */
+  --color-text-muted: #7f8c8d;    /* Texto secundario o subtítulos */
+  --color-mountain: #555; /* Café para montañas */
+  --color-nature:#228B22; /* Verde para colinas */
+  
+  /* Estados de Vuelo */
+  --color-status-active: #d4edda;
+  --color-status-active-text: #155724;
+  --color-status-error: #f8d7da;
+  --color-status-error-text: #721c24;
+
+  /* Tipografía */
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  /* Sombras y Bordes */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --border-radius-round: 50px;
+
+  /* Transiciones */
+  --transition-speed: 0.3s ease;
+
+  /* Breakpoints para Responsive Design */
+  --mobile: 480px;
+  --tablet: 768px;
+  --desktop: 1024px;
+}
