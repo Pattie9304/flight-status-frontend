@@ -16,6 +16,7 @@ const HomeContent = () => (
   <div style={{ padding: '100px 20px', textAlign: 'center' }}>
     <h1>Bienvenido a la Terminal Principal</h1>
     <p>Selecciona un destino en el menú superior.</p>
+    <p>O visuzaliza en la parte inferior los direntes vuelos y sus horarios.</p>
   </div>
 );
 
