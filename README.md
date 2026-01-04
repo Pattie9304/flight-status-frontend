@@ -1,16 +1,28 @@
-# React + Vite
+# ✈️ JetDevs - Monitoreo de Vuelos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+JetDevs es una aplicación web moderna diseñada para visualizar información de vuelos en tiempo real. Utiliza la API de AviationStack para obtener datos precisos sobre despegues, aterrizajes y estados de vuelos a nivel global.
 
-Currently, two official plugins are available:
+## 🚀 Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Visualización en Tiempo Real:** Listado detallado de vuelos con origen, destino, aerolínea y estado.
+- **Diseño Responsivo:** Interfaz optimizada para móviles, tablets y monitores de alta resolución.
+- **Sistema de Radar Activo:** Indicador visual en el header que muestra la sincronización con la API.
+- **Navegación Fluida:** Experiencia de usuario mejorada con scrolls suaves y botones de navegación rápida.
+- **Modo Dark-Cohesive:** Tarjetas de información con un diseño oscuro elegante y profesional.
 
-## React Compiler
+## 🛠️ Tecnologías Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React.js:** Biblioteca principal para la interfaz de usuario.
+- **Vite:** Herramienta de construcción para un desarrollo rápido.
+- **CSS3:** Estilos personalizados con variables globales y diseño de Grid/Flexbox.
+- **React Router Dom:** Gestión de navegación entre páginas (Inicio, Vuelos, Acerca de).
+- **AviationStack API:** Fuente de datos aeroespaciales.
 
-## Expanding the ESLint configuration
+## 📸 Capturas de Pantalla
+- **Página Inicio:**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Página Acerca De:**
+
+- **Página Vuelos:**
+
+- **Responsive Design:** 
