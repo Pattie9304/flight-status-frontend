@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Componentes de Layout
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import GlobalLoader from '../UI/GlobalLoader/GlobalLoader';
 
 // Páginas
 import Home from '../../pages/Home/Home';
@@ -37,34 +38,24 @@ function App() {
     fetchFlights();
   }, []);
 
-  return (
-      <div className="app-container">
-        {/* El Header recibe la función de refrescar y el estado de carga */}
-        <Header onRefresh={fetchFlights} isLoading={loading} />
-        
-        {/* Contenedor dinámico de rutas */}
-        <main className="content">
-          <Routes>
-            {/* 1. INICIO: Muestra bienvenida + 6 tarjetas */}
-            <Route 
-              path="/" 
-              element={<Home flights={flights} loading={loading} error={error} />} 
-            />
+return (
+    <div className="app-container">
+      {/* 1. Si loading es true, mostramos el loader global sobre todo */}
+      {loading && <GlobalLoader />}
 
-            {/* 2. VUELOS: Muestra el listado completo con paginación */}
-            <Route 
-              path="/main" 
-              element={<Main flights={flights} loading={loading} error={error} />} 
-            />
+      <Header onRefresh={fetchFlights} isLoading={loading} />
+      
+      <main className="content">
+        <Routes>
+          <Route path="/" element={<Home flights={flights} error={error} />} />
+          <Route path="/main" element={<Main flights={flights} error={error} />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </main>
 
-            {/* 3. ACERCA DE */}
-            <Route path="/about" element={<About />} />
-          </Routes>
-        </main>
-
-        <Footer />
-      </div>
-  );
+      <Footer />
+    </div>
+    );
 }
 
 export default App;

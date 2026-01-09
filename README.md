@@ -2,6 +2,15 @@
 
 JetDevs es una aplicación web moderna diseñada para visualizar información de vuelos en tiempo real. Utiliza la API de AviationStack para obtener datos precisos sobre despegues, aterrizajes y estados de vuelos a nivel global.
 
+## 📸 Capturas de Pantalla
+- **Página Inicio:**
+
+- **Página Acerca De:**
+
+- **Página Vuelos:**
+
+- **Responsive Design:** 
+
 ## 🚀 Características
 
 - **Visualización en Tiempo Real:** Listado detallado de vuelos con origen, destino, aerolínea y estado.
@@ -17,12 +26,3 @@ JetDevs es una aplicación web moderna diseñada para visualizar información de
 - **CSS3:** Estilos personalizados con variables globales y diseño de Grid/Flexbox.
 - **React Router Dom:** Gestión de navegación entre páginas (Inicio, Vuelos, Acerca de).
 - **AviationStack API:** Fuente de datos aeroespaciales.
-
-## 📸 Capturas de Pantalla
-- **Página Inicio:**
-
-- **Página Acerca De:**
-
-- **Página Vuelos:**
-
-- **Responsive Design:** 

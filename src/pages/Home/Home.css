@@ -10,6 +10,15 @@
   background-color: #ffffff;
 }
 
+.home__status-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px; /* O el espacio que quieras que ocupe */
+  width: 100%;
+}
+
 /* Hero ultra compacto */
 .home__hero {
   text-align: center;

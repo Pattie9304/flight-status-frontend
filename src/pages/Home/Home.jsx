@@ -24,14 +24,11 @@ const Home = ({ flights = [], error, loading }) => {
         </div>
       </header>
 
-{/* MANEJO DE ESTADOS */}
-      <div className="home__container">
-        {loading && flights.length === 0 ? (
-          <div className="home__status-container">
-            <div className="home__loader"></div>
-            <p className="home__message">Iniciando escaneo de radar...</p>
-          </div>
-        ) : error ? (
+{/* MANEJO DE ESTADOS ACTUALIZADO */}
+<div className="home__container">
+        {/* Eliminamos el bloque de {loading ? ...} */}
+        
+        {error ? (
           <div className="home__status-container">
             <p className="home__message home__message--error">⚠️ {error}</p>
           </div>
@@ -39,22 +36,19 @@ const Home = ({ flights = [], error, loading }) => {
           <div className="home__grid">
             {flightPreview.length > 0 ? (
               flightPreview.map((flight, index) => (
-                <div 
-                  key={flight.flight?.iata || index} 
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                  className="home__card-wrapper"
-                >
+                <div key={flight.flight?.iata || index} className="home__card-wrapper">
                   <FlightCard data={flight} />
                 </div>
               ))
             ) : (
-              <p className="home__message">No hay vuelos disponibles en este momento.</p>
+              /* Mostramos esto solo si NO está cargando y no hay vuelos */
+              !loading && <p className="home__message">No hay vuelos disponibles.</p>
             )}
           </div>
         )}
       </div>
     </section>
-  );
+    );
 };
 
 export default Home;
