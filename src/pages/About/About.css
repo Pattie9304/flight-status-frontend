@@ -1,0 +1,143 @@
+/* --- ESTILOS BASE --- */
+.about {
+  width: 100%;
+  /* Cambiamos min-height para evitar que fuerce espacios vacíos */
+  min-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.about__hero {
+  text-align: center;
+  padding: 3rem 2rem 1rem; /* Padding equilibrado */
+  flex-shrink: 0;
+}
+
+.about__title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-page-title);
+  margin-bottom: 0.2rem;
+  letter-spacing: -1px;
+}
+
+.about__subtitle {
+  font-size: 0.95rem;
+  color: var(--text-page-body);
+  margin-bottom: 0.5rem;
+}
+
+.about__divider {
+  width: 60px;
+  height: 2px;
+  background-color: var(--accent-primary);
+  margin: 0.5rem auto 1rem;
+}
+
+/* --- CONTENEDOR CENTRAL --- */
+.about__container {
+  width: 100%;
+  padding: 0 2rem 4rem; /* Padding inferior para no pegar al footer */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alineamos arriba para controlar márgenes */
+}
+
+.about__main-card {
+  background-color: var(--bg-card);
+  color: var(--text-card-main);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 800px;
+  width: 100%;
+  border: 1px solid var(--border-card);
+  /* Mantenemos el estilo pero eliminamos el scale que causa problemas de margen */
+  transform: none; 
+}
+
+.about__card-title {
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.about__card-text {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: var(--text-card-muted);
+  margin-bottom: 2rem;
+}
+
+/* Grid de iconos */
+.about__specs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+}
+
+.about__spec-item {
+  text-align: center;
+}
+
+.about__spec-icon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.about__spec-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent-secondary);
+}
+
+/* --- ANIMACIONES --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- AJUSTE TABLET (601px a 880px) --- */
+@media screen and (min-width: 601px) and (max-width: 880px) {
+  .about {
+    /* Quitamos el centrado vertical forzado */
+    justify-content: flex-start; 
+  }
+
+  .about__hero {
+    /* Reducimos el margen superior exagerado */
+    padding-top: 1.5rem; 
+    margin-bottom: 0.5rem;
+  }
+
+  .about__container {
+    /* Ajustamos el espacio inferior de la tarjeta */
+    padding-top: 0;
+    padding-bottom: 2rem; 
+  }
+
+  .about__main-card {
+    padding: 2rem;
+    max-width: 90%;
+  }
+}
+
+/* --- AJUSTE MÓVIL (600px) --- */
+@media (max-width: 600px) {
+  .about__hero {
+    padding-top: 2rem;
+  }
+  .about__main-card { 
+    padding: 1.5rem; 
+  }
+  .about__specs-grid { 
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+  }
+}

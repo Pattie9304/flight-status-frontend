@@ -1,0 +1,42 @@
+:root {
+  /* --- Fondo de la Aplicación (Claro) --- */
+  --bg-main: #f8fafc;          /* Gris muy claro (Cloud) */
+  --bg-secondary: #f1f5f9;     /* Fondo para secciones o inputs */
+  
+  /* --- Tarjetas (Oscuras / High Contrast) --- */
+  --bg-card: #1e293b;          /* Azul pizarra oscuro */
+  --bg-card-header: #0f172a;   /* Azul casi negro para el header del ticket */
+  
+  /* --- Textos de la Página (Sobre fondo claro) --- */
+  --text-page-title: #0f172a;  /* Título principal oscuro */
+  --text-page-body: #475569;   /* Texto secundario gris */
+
+  /* --- Textos de la Tarjeta (Sobre fondo oscuro) --- */
+  --text-card-main: #f8fafc;   /* Blanco para IATAs y números */
+  --text-card-muted: #94a3b8;  /* Gris azulado para etiquetas */
+
+  /* --- Colores de Acento --- */
+  --accent-primary: #38bdf8;   /* Azul cielo brillante (Radar) */
+  --accent-secondary: #0ea5e9; /* Azul medio */
+
+  /* --- Estados (Colores adaptados para fondo oscuro) --- */
+  --status-scheduled-bg: rgba(254, 249, 195, 0.15);
+  --status-scheduled-text: #fde047;
+  
+  --status-active-bg: rgba(74, 222, 128, 0.15);
+  --status-active-text: #4ade80;
+  
+  --status-landed-bg: rgba(148, 163, 184, 0.2);
+  --status-landed-text: #cbd5e1;
+
+  /* --- Bordes y Sombras --- */
+  --border-card: rgba(255, 255, 255, 0.08);
+  --border-page: #e2e8f0;
+  --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  
+  /* --- Estructura --- */
+  --font-main: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius-lg: 16px;
+  --radius-md: 10px;
+}

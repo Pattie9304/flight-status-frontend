@@ -1,0 +1,45 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+/* Variante Primaria (Azul Radar) */
+.btn--primary {
+  background-color: var(--accent-primary);
+  color: var(--bg-card-header);
+}
+
+.btn--primary:hover {
+  background-color: var(--accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+/* Variante Ghost (Para el Header) */
+.btn--ghost {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-card-main);
+  border-color: var(--border-card);
+}
+
+.btn--ghost:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.btn__icon {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}

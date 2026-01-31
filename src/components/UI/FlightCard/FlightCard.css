@@ -1,0 +1,158 @@
+.flight-card {
+  /* Estructura y Colores Base */
+  background-color: var(--bg-card);
+  color: var(--text-card-main);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-card);
+  
+  /* Animación de Fading al cargar */
+  opacity: 0;
+  animation: fadeInCard 0.6s ease-out forwards;
+  transform: translateY(20px); /* Empieza un poco más abajo */
+
+  /* Usamos 'animation' con todos los parámetros */
+  animation-name: fadeInCard;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; /* Obligatorio: para que no desaparezca al terminar */
+}
+
+.flight-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-primary);
+}
+
+/* Header: Aerolínea y Número de Vuelo */
+.flight-card__header {
+  padding: 1rem;
+  background-color: var(--bg-card-header);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed var(--border-dashed);
+}
+
+.flight-card__airline {
+  font-weight: 700;
+  color: var(--accent-primary);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.flight-card__number {
+  font-family: var(--font-mono);
+  background-color: var(--accent-secondary);
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* Contenido Principal: Códigos IATA y Trayecto */
+.flight-card__content {
+  padding: 2rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flight-card__city {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 70px;
+}
+
+.flight-card__iata {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-card-main);
+  line-height: 1;
+}
+
+.flight-card__label {
+  color: var(--text-card-muted);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Icono del avión y línea divisoria */
+.flight-card__icon {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 10px;
+}
+
+.flight-card__line {
+  height: 1px;
+  background-color: var(--border-dashed);
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.flight-card__plane {
+  background-color: var(--bg-card); /* Tapa la línea para que el avión resalte */
+  padding: 0 8px;
+  z-index: 2;
+  font-size: 1.1rem;
+  filter: drop-shadow(0 0 5px var(--accent-primary));
+}
+
+/* Footer: Estado del Vuelo */
+.flight-card__footer {
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2); /* Oscurece un poco el fondo de la tarjeta */
+  display: flex;
+  justify-content: center;
+}
+
+.flight-card__status {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 5px 15px;
+  border-radius: var(--radius-md);
+  letter-spacing: 0.8px;
+}
+
+/* Variantes de Color por Estado */
+.flight-card__status--scheduled { 
+  background-color: var(--status-scheduled-bg); 
+  color: var(--status-scheduled-text); 
+}
+
+.flight-card__status--active { 
+  background-color: var(--status-active-bg); 
+  color: var(--status-active-text);
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.1); 
+}
+
+.flight-card__status--landed { 
+  background-color: var(--status-landed-bg); 
+  color: var(--status-landed-text); 
+}
+
+/* Keyframes para la animación de entrada */
+@keyframes fadeInCard {
+0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
